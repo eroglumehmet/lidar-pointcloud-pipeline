@@ -36,13 +36,13 @@ if __name__ == "__main__":
     t1 = time.perf_counter()
     n, d = best_plane
     print("normal (a,b,c):", n / np.linalg.norm(n))
-    print("inlier sayısı:", best_mask.sum())
-    print("süre (ms):", (t1 - t0) * 1000)
+    print("inliers:", best_mask.sum())
+    print("time (ms):", (t1 - t0) * 1000)
     t0 = time.perf_counter()
     plane_model, inliers = down.segment_plane(distance_threshold=15.0, ransac_n=3, num_iterations=1000)
     t1 = time.perf_counter()
     print("open3d normal:", plane_model[:3])
     print("open3d inlier:", len(inliers))
-    print("open3d süre (ms):", (t1 - t0) * 1000)
+    print("open3d time (ms):", (t1 - t0) * 1000)
     
         
